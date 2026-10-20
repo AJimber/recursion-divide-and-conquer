@@ -4,8 +4,10 @@
 #include <cassert>
 #include <iostream>
 
+using namespace std;
+
 /**
- * @brief Representa una posición dentro de un tablero de ajedrez de 8x8.
+ * @brief Clase que representa una casilla de un tablero de ajedrez.
  */
 class Casilla
 {
@@ -14,66 +16,54 @@ private:
     int _columna;
 
 public:
-    /**
-     * @brief Constructor por defecto. Inicializa la casilla en (1, 1).
-     */
-    Casilla() : _fila(1), _columna(1) {}
-
-    /**
-     * @brief Constructor con coordenadas.
-     * @param fila Fila de la casilla.
-     * @param columna Columna de la casilla.
-     */
-    Casilla(int fila, int columna)
-        : _fila(fila), _columna(columna)
+    // Constructor por defecto: posición (1, 1).
+    Casilla() : _fila(1), _columna(1)
     {
-        assert(fila >= 1 && fila <= 8);
-        assert(columna >= 1 && columna <= 8);
     }
 
-    /**
-     * @brief Destructor de la clase.
-     */
-    ~Casilla() = default;
+    // Constructor con coordenadas.
+    Casilla(int fila, int columna)
+    {
+        assert(fila > 0 && fila < 9);
+        assert(columna > 0 && columna < 9);
 
-    /**
-     * @brief Devuelve la fila actual.
-     */
-    int fila() const
+        _fila = fila;
+        _columna = columna;
+    }
+
+    // Destructor.
+    ~Casilla()
+    {
+    }
+
+    // Devuelve la fila de la casilla.
+    inline int fila() const
     {
         return _fila;
     }
 
-    /**
-     * @brief Devuelve la columna actual.
-     */
-    int columna() const
+    // Devuelve la columna de la casilla.
+    inline int columna() const
     {
         return _columna;
     }
 
-    /**
-     * @brief Modifica la fila.
-     */
-    void fila(const int &nuevaFila)
+    // Modifica la fila.
+    inline void fila(const int &nuevaFila)
     {
         _fila = nuevaFila;
     }
 
-    /**
-     * @brief Modifica la columna.
-     */
-    void columna(const int &nuevaColumna)
+    // Modifica la columna.
+    inline void columna(const int &nuevaColumna)
     {
         _columna = nuevaColumna;
     }
 
-    /**
-     * @brief Muestra las coordenadas de la casilla.
-     */
-    void mostrarCasilla()
+    // Muestra las coordenadas de la casilla.
+    inline void mostrarCasilla()
     {
-        std::cout << "(" << _fila << ", " << _columna << ") ";
+        cout << "(" << _fila << ", " << _columna << ") ";
     }
 };
 
