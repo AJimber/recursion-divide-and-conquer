@@ -1,6 +1,4 @@
 # AJimber
-# 3º de Grado en Ingeniería Informática
-# Práctica 2 de Algorítmica
 
 cmake_minimum_required(VERSION 3.10)
 
